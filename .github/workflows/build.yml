@@ -11,6 +11,10 @@ jobs:
           # Nix Flakes doesn't work on shallow clones
           fetch-depth: 0
       - uses: cachix/install-nix-action@v20
+        with:
+          extra_nix_config: |
+            extra-platforms = aarch64-linux
+
       - name: List flake structure
         run: nix flake show
 
