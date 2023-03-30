@@ -9,7 +9,4 @@
 
   # USB booting
   isoImage.makeUsbBootable = true;
-
-  formatAttr = "isoImage";
-  filename = "*.iso";
 }
