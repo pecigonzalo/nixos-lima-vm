@@ -1,6 +1,6 @@
 { config, lib, ... }:
 {
-  virtualization.rosetta.enable = true;
+  virtualisation.rosetta.enable = true;
 
   boot.initrd.availableKernelModules = [ "virtiofs" ];
 

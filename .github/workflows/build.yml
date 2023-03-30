@@ -15,7 +15,7 @@ jobs:
         run: nix flake show
 
       - name: Run build (flake)
-        run: nix build
+        run: nix build '.#nixosConfigurations.default.config.system.build.isoImage'
 
       - run: |
           ls -lah ./build
