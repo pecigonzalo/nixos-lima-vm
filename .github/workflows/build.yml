@@ -1,0 +1,27 @@
+name: "Test"
+on:
+  pull_request:
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # Nix Flakes doesn't work on shallow clones
+          fetch-depth: 0
+      - uses: cachix/install-nix-action@v20
+      - name: List flake structure
+        run: nix flake show
+
+      - name: Run build (flake)
+        run: nix build
+
+      - run: |
+          ls -lah ./build
+
+      - name: Uploade iso
+        uses: actions/upload-artifact@v3
+        with:
+          name: aarch64-iso
+          path: build/this.iso
