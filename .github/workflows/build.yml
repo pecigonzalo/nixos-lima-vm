@@ -10,6 +10,8 @@ jobs:
         with:
           # Nix Flakes doesn't work on shallow clones
           fetch-depth: 0
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
       - uses: cachix/install-nix-action@v20
         with:
           extra_nix_config: |
