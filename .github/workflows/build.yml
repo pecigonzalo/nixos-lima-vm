@@ -24,10 +24,10 @@ jobs:
         run: nix build '.#nixosConfigurations.default.config.system.build.isoImage'
 
       - run: |
-          ls -lah ./build
+          ls -lah ./result/iso/nixos.iso
 
       - name: Uploade iso
         uses: actions/upload-artifact@v3
         with:
           name: aarch64-iso
-          path: build/this.iso
+          path: ./result/iso/nixos.iso
